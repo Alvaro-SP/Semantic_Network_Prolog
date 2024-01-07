@@ -1,0 +1,71 @@
+
+Dinosaurios:
+ causa de extincion:
+    - Impacto de asteroides
+    - actividad volcanica
+ subtipo:
+    - Ornitisquios
+        caracteristica:
+            - cuernos                                   subtipo(ornitisquios, Caracteristica, _, _, _).
+        tipo de alimentacion:
+            - herbivoros                                subtipo(ornitisquios, _, tipo_alimentacion(X), _, _).
+        ejemplar:
+            - Triceratops                               subtipo(ornitisquios, _, _, ejemplar(X, _), ejemplar(Y, _)).
+                caracteristica singular:                subtipo(ornitisquios, _, _, ejemplar(_, X), ejemplar(_, Y)).
+                    - tres cuernos
+                    - Gran placa osea en la cabeza
+            - Stegosaurus
+                caracteristica singular:
+                    - Placas oseas a lo largo de su espalda
+                    - Espinas dorsales
+    - Teropodos
+        caracteristica:
+            - Bipedos
+        tipo de alimentacion:
+            - Carnivoros
+        ejemplar:
+            - Tyrannosaurus Rex
+                caracteristica singular:
+                    - Pequeños brazos
+                    - Grandes mandibulas
+            - Velociraptor
+                caracteristica singular:
+                    - Agil
+                    - Cazador
+            - Allosaurus
+                caracteristica singular:
+                    - Agil
+                    - Grande
+    - Sauropodomorfos
+        caracteristica:
+            - Cuello largo
+        tipo de alimentacion:
+            - herbivoros
+        ejemplar:
+            -Brachiosaurus
+                caracteristica singular:
+                    - cola larga
+                    - cabeza pequeña
+            -Apatosaurus
+                caracteristica singular:
+                    - cola larga en forma de látigo
+    - Era geologica                         era_geologica(era_mesozoica,se_divide_en(Y),supercontinente(Z)).
+        - Era Mesozoica
+            se divide en:
+                - Triasico
+                - Jurasico
+                - Cretacico
+            supercontinente:
+                - Pangea
+
+
+extincion(Causa).
+?- extincion(X).
+X = causa(impacto_asteroides) ;
+X = causa(actividad_volcanica).
+
+subtipo(ornitisquios, Caracteristica, _, _, _).
+subtipo(ornitisquios, _, tipo_alimentacion(X), _, _).
+subtipo(ornitisquios, _, _, ejemplar(X, _), ejemplar(Y, _)).
+subtipo(ornitisquios, _, _, ejemplar(_, X), ejemplar(_, Y)).
+era_geologica(era_mesozoica,se_divide_en(Y),supercontinente(Z)).
